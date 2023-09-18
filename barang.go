@@ -1,6 +1,6 @@
-package latihan1
+package main
 
-type Item struct {
+type Barang struct {
 	Nama  string
 	Harga int
 }

@@ -1,4 +1,4 @@
-package latihan1
+package main
 
 import "fmt"
 
@@ -17,30 +17,30 @@ func NewKeranjang() *Keranjang {
 	return &Keranjang{}
 }
 
-func (c *Keranjang) TambahItem(barang Barang) {
-	c.barangs = append(c.barangs, barang)
+func (k *Keranjang) TambahItem(barang Barang) {
+	k.barangs = append(k.barangs, barang)
 }
 
-func (c *Keranjang) HapusItem(barangNama string) {
-	for i, barang := range c.barangs {
+func (k *Keranjang) HapusItem(barangNama string) {
+	for i, barang := range k.barangs {
 		if barang.Nama == barangNama {
-			c.barangs = append(c.barangs[:i], c.barangs[i+1:]...)
+			k.barangs = append(k.barangs[:i], k.barangs[i+1:]...)
 			break
 		}
 	}
 }
 
-func (c *Keranjang) HitungTotal() int {
+func (k *Keranjang) HitungTotal() int {
 	total := 0
-	for _, barang := range c.barangs {
+	for _, barang := range k.barangs {
 		total += barang.Harga
 	}
 	return total
 }
 
-func (c *Keranjang) LihatKeranjang() {
+func (k *Keranjang) LihatKeranjang() {
 	fmt.Println("Isi Keranjang Belanja:")
-	for _ , barang := range c.barangs {
-		fmt.Printf("- %s: Rp%d\n", &barang.Nama, barang.Harga)
+	for _ , barang := range k.barangs {
+		fmt.Printf("- %s: Rp%d\n",barang.Nama, barang.Harga)
 	}
 }

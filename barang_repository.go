@@ -1,4 +1,4 @@
-package latihan1
+package main
 
 type BarangRepository interface {
 	GetAllBarang() ([]Barang, error)
