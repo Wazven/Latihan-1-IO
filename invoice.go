@@ -5,19 +5,23 @@ import (
 	"os"
 )
 
-type Invoice interface {
+type Invoice interface { //interface yang digunakan untuk mencetak invoice
 	PrintInvoice(keranjang Keranjang)
 }
-
+// ConsolePrinter adalah struct yang mengimplementasikan interface Invoice
+// untuk mencetak invoice ke konsol.
 type ConsolePrinter struct{}
-
+// PrintInvoice mencetak invoice ke konsol.
 func (cp *ConsolePrinter) PrintInvoice(keranjang Keranjang) {
 	fmt.Println("Invoice Belanja: ")
 	keranjang.LihatKeranjang()
 	fmt.Printf("Total Harga: Rp%d\n", keranjang.HitungTotal())
 }
 
+// FilePrinter adalah struct yang mengimplementasikan interface Invoice
+// untuk mencetak invoice ke dalam file.
 type FilePrinter struct{}
+// PrintInvoice mencetak invoice ke dalam file dengan nama yang ditentukan.
 func (fp *FilePrinter) PrintInvoice(keranjang Keranjang, fileName string) error {
 	//Implementasi pencetakan file
 	file, err := os.Create(fileName)
