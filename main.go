@@ -40,28 +40,34 @@ func main() {
 			barang, _ := ListBarang.GetAllBarang()
 			DisplayListBarang(barang)
 
-			var itemName string
-			fmt.Print("Nama Barang: ")
-			fmt.Scanln(&itemName)
+			var itemID int
+			fmt.Print("ID Barang: ")
+			fmt.Scanln(&itemID)
 
 			//mencari barang berdasarkan nama
-			item := FindBarangByName(barang, itemName)
+			item := FindBarangByID(barang, itemID)
 			if item == nil {
-				fmt.Printf("Barang '%s' tidak ditemukan dalam daftar barang.\n", itemName)
+				fmt.Printf("Barang '%s' tidak ditemukan dalam daftar barang.\n", itemID)
 				continue
 			}
+			var jumlah int
+			fmt.Print("Jumlah Barang: ")
+			fmt.Scanln(&jumlah)
+
 
 			//menambahkan barang ke keranjang
-			operasi.TambahItem(*item)
-			fmt.Printf("%s berhasil ditambahkan ke keranjang.\n", itemName)
+			operasi.TambahBarangJumlah(*item, jumlah)
+			fmt.Printf("%s berhasil ditambahkan ke keranjang %d.\n", item.Nama, jumlah)
 		case 2:
-			var itemName string
-			fmt.Print("Nama Barang yang akan dihapus: ")
-			fmt.Scanln(&itemName)
+			keranjang.LihatKeranjang()
+
+			var itemID int
+			fmt.Print("ID Barang yang akan dihapus: ")
+			fmt.Scanln(&itemID)
 
 			//menghapus barang dari keranjang
-			operasi.HapusItem(itemName)
-			fmt.Printf("%s berhasil dihapus dari keranjang.\n", itemName)
+			operasi.HapusItem(itemID)
+			fmt.Printf("ID Barang %d berhasil dihapus dari keranjang.\n", itemID)
 		case 3:
 			//display isi keranjang
 			display.LihatKeranjang()
@@ -97,18 +103,18 @@ func main() {
 	}
 }
 
-func DisplayListBarang(barang []Barang){ //fungsi displaylistbarang untuk cli
-	fmt.Println("Daftar Barang Tersedia: ")
-	for _, barang := range barang{
-		fmt.Printf("- %s: Rp%d\n", barang.Nama, barang.Harga)
-	}
-}
-
-func FindBarangByName(barang []Barang, itemName string) *Barang { //fungsi untuk mencari barang berdasarkan nama dan mencocokannya dengan itemName
-	for _, barang := range barang {
-		if barang.Nama == itemName {
-			return &barang
+func FindBarangByID(barang []Barang, id int) *Barang { //fungsi untuk mencari barang berdasarkan nama dan mencocokannya dengan itemName
+	for _, item := range barang {
+		if item.ID == id {
+			return &item
 		}
 	}
 	return nil
+}
+
+func DisplayListBarang(barang []Barang){
+	fmt.Println("Daftar Barang: ")
+	for _, barang := range barang{
+		fmt.Printf("- ID: %d, Nama: %s, Harga: Rp%d \n", barang.ID,barang.Nama,barang.Harga)
+	}
 }

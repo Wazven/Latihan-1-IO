@@ -31,10 +31,17 @@ Pilih Opearsi:
 - Tampilan Invoice
 ```golang
 Invoice Belanja:
-Isi Keranjang Belanja:
-- Buku: Rp12000
 - Pulpen: Rp3500
-Total Harga: Rp15500
+- Pulpen: Rp3500
+- Pulpen: Rp3500
+- Pulpen: Rp3500
+- Pulpen: Rp3500
+- Pulpen: Rp3500
+- Buku: Rp12000
+- Buku: Rp12000
+- Buku: Rp12000
+Total Harga: Rp57000
+Total Barang: 9
 ```
 
 ## Authors

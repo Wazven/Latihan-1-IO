@@ -12,11 +12,11 @@ func NewBarangList() *ListBarang { // NewBarangList membuat dan menginisialisasi
 
 	return &ListBarang{
 		barang: []Barang{
-			{"Buku", 12000},
-			{"Pulpen", 3500},
-			{"Pensil", 2000},
-			{"Tipe-x", 4000},
-			{"Pulpen Warna", 7000},
+			{ID: 1, Nama: "Buku", Harga: 12000},
+			{ID: 2, Nama: "Pulpen", Harga: 3500},
+			{ID: 3, Nama: "Pensil", Harga: 2000},
+			{ID: 4, Nama: "Tipe-x", Harga: 4000},
+			{ID: 5, Nama: "Pulpen_Warna", Harga: 7000},
 		},
 	}
 }

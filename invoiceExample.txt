@@ -1,8 +1,12 @@
 Invoice Belanja:
+- Pulpen: Rp3500
+- Pulpen: Rp3500
+- Pulpen: Rp3500
+- Pulpen: Rp3500
+- Pulpen: Rp3500
+- Pulpen: Rp3500
 - Buku: Rp12000
-- Pulpen: Rp3500
-- Pensil: Rp2000
-- Pulpen: Rp3500
-- Pulpen: Rp3500
-- Tipe-x: Rp4000
-Total Harga: Rp28500
+- Buku: Rp12000
+- Buku: Rp12000
+Total Harga: Rp57000
+Total Barang: 9
